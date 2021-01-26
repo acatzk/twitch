@@ -31,11 +31,13 @@
               </ul>
             </div>
             <div class="font-medium tracking-wide text-gray-400 uppercase px-1.5 pt-3">Help & Legal</div>
-            <ul class="capitalize">
-              <li v-for="(h, i) in helpLegal" :key="i" class="hover:bg-gray-darker py-1.5 px-1.5 rounded cursor-pointer">
-                <a href="#" class="text-xs text-gray-200 tracking-wide">{{ h }}</a>
-              </li>
-            </ul>
+            <div class="mt-2">
+              <ul class="capitalize">
+                <li v-for="(h, i) in helpLegal" :key="i" class="hover:bg-gray-darker py-1.5 px-1.5 rounded cursor-pointer">
+                  <a href="#" class="text-xs text-gray-200 tracking-wide">{{ h }}</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
