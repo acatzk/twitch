@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-darker border-2 border-black leading-none py-2.5 px-2">
+  <header class="bg-darker border-2 border-black leading-none py-1.5 px-2">
     <div class="flex items-center justify-between">
       <div class="flex items-center space-x-8">
         <div class="relative flex flex-col items-center">
@@ -34,11 +34,16 @@
           </div>
         </div>
       </div>
-      <div class="hidden sm:block">
+      <div>
         <form class="flex">
-          <input type="text" placeholder="Search" class="border border-gray-400 shadow-inner px-3 w-56 md:w-64 lg:w-128 rounded-l-sm focus:outline-none focus:border-blue-700">
-          <button @click.prevent class="border-t border-r border-b rounded-r-sm border-gray-400 px-6 bg-gray-100 text-sm hover:bg-gray-200 transition ease-in-out duration-150 focus:outline-none">
-            <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" class="style-scope yt-icon"></path></svg>
+          <input  type="text" 
+                  placeholder="Search" 
+                  class="w-96 py-2 pl-3 focus:outline-none rounded-l-md text-sm bg-gray-dark 
+                         hover:ring-2 ring-inset ring-gray-hover 
+                         focus:bg-black focus:ring-2 focus:ring-primary
+                         transition ease-in-out duration-150">
+          <button class="focus:outline-none bg-gray-darkest px-1 border-l border-black rounded-r" @click.prevent>
+            <svg class="w-6 text-gray-light fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M13.192 14.606a7 7 0 111.414-1.414l3.101 3.1-1.414 1.415-3.1-3.1zM14 9A5 5 0 114 9a5 5 0 0110 0z" clip-rule="evenodd"></path></svg>
           </button>
         </form>
       </div>
