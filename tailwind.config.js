@@ -12,8 +12,11 @@ module.exports = {
       colors: {
         primary: '#9147ff',
         'gray-dim': '#3a3a3d',
+        'gray-hover': '#5d5d5f',
+        'gray-light': '#5a5a5c',
         'gray-dark': '#464648',
         'gray-darker': '#303032',
+        'gray-darkest': "#29292b",
         'dark': '#1f1f23',
         'darker': '#18181b',
         'darkest': '#0e0e10',
@@ -23,7 +26,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      ringWidth: ['hover', 'active']
+    },
   },
   plugins: [],
 }
