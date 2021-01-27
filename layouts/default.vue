@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col bg-darkest min-h-screen h-screen text-gray-50 antialiased">
     <TheNavBar />
-    <main>
+    <main class="flex flex-row flex-grow overflow-y-hidden">
       <Nuxt />
     </main>
   </div>
