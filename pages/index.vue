@@ -1,7 +1,9 @@
 <template>
   <div class="flex-grow flex flex-row">
-    <div class="bg-blue-100 w-60"></div>
-    <div class="bg-green-100 flex-grow"></div>
+    <TheSideBar />
+    <div class="flex-grow overflow-y-auto">
+
+    </div>
   </div>
 </template>
 
@@ -9,6 +11,9 @@
   export default {
     head: {
       title: 'Twitch'
+    },
+    components: {
+      TheSideBar: () => import('~/components/TheSideBar')
     }
   }
 </script>
