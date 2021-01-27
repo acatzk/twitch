@@ -21,7 +21,9 @@ module.exports = {
         'darker': '#18181b',
         'darkest': '#0e0e10',
         'indigo-dark': '#772ce8',
-        'indigo-darkest': '#5c16c5'
+        'indigo-darkest': '#5c16c5',
+        'gray-side-hover': '#26262c',
+        'red-online': '#e91916'
       }
     },
   },
