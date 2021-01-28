@@ -11,7 +11,7 @@
     </div>
     <div>
       <ul v-for="(l, i) in live" :key="i">
-        <li class="transition ease-in-out duration-75 hover:bg-gray-side-hover cursor-pointer">
+        <li class="transition ease-in-out duration-75 lg:hover:bg-gray-side-hover cursor-pointer ">
           <a href="#" class="inline-flex items-center px-2 py-1 lg:px-2.5 space-x-2 w-full">
             <div class="flex-shrink-0">
               <img class="rounded-full w-8 h-8 bg-dark" :src="l.avatar" alt="avatar">
@@ -33,7 +33,7 @@
       </ul>
     </div>
     <div class="hidden lg:block border border-b-2 border-darkest bg-darker shadow-lg rounded-lg mx-2 mt-2">
-      <div class="pt-7 pb-5 px-6 space-y-2">
+      <div class="pt-7 pb-5 px-5 space-y-1">
         <h1 class="font-medium text-2xl leading-7">Join the <span class="text-primary">Twitch</span> community!</h1>
         <div class="space-y-2">
           <p class="text-sm font-light">Discover the best live streams anywhere.</p>
