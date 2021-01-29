@@ -21,11 +21,11 @@
           <button @click.prevent="toggle = !toggle" class="px-1 py-1 rounded transition ease-in-out duration-75 focus:outline-none hover:bg-gray-dark">
             <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M2 10a2 2 0 114 0 2 2 0 01-4 0zM8 10a2 2 0 114 0 2 2 0 01-4 0zM16 8a2 2 0 100 4 2 2 0 000-4z"></path></svg>
           </button>
-          <div class="absolute w-48 bg-darker rounded-md shadow-inner px-2 py-4 border border-black text-xs" v-show="toggle">
+          <div class="absolute w-48 bg-darker rounded-md shadow-inner px-2 py-4 border border-black text-xs z-20" v-show="toggle">
             <div class="font-medium tracking-wide text-gray-400 uppercase px-1.5">General</div>
             <div class="border-b border-gray-800 pb-2 py-2">
               <ul class="capitalize">
-                <li v-for="(m, i) in more" :key="i" class="hover:bg-gray-darker py-1.5 px-1.5 rounded cursor-pointer">
+                <li v-for="(m, i) in more" :key="i" class="hover:bg-gray-darker py-1.5 px-1.5 rounded cursor-pointer" @click.prevent="toggle = !toggle">
                   <a href="#" class="text-xs text-gray-200 tracking-wide">{{ m }}</a>
                 </li>
               </ul>
@@ -33,7 +33,7 @@
             <div class="font-medium tracking-wide text-gray-400 uppercase px-1.5 pt-3">Help & Legal</div>
             <div class="mt-2">
               <ul class="capitalize">
-                <li v-for="(h, i) in helpLegal" :key="i" class="hover:bg-gray-darker py-1.5 px-1.5 rounded cursor-pointer">
+                <li v-for="(h, i) in helpLegal" :key="i" class="hover:bg-gray-darker py-1.5 px-1.5 rounded cursor-pointer" @click.prevent="toggle = !toggle">
                   <a href="#" class="text-xs text-gray-200 tracking-wide">{{ h }}</a>
                 </li>
               </ul>
