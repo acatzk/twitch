@@ -22,6 +22,10 @@ export default {
     {
       src: '~/plugins/vue-carousel-3d.js',
       mode: 'client'
+    },
+    {
+      src: '~/plugins/vue2-perfect-scrollbar.js',
+      mode: 'client'
     }
   ],
 
