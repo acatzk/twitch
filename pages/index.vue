@@ -1,6 +1,8 @@
 <template>
   <div class="flex-grow flex flex-row h-screen">
-    <TheSideBar />
+    <div class="flex-shrink-0">
+      <TheSideBar />
+    </div>
     <div class="flex-grow overflow-y-auto px-8 py-3">
       <client-only>
         <carousel-3d :controls-visible="true" 
@@ -16,7 +18,19 @@
           </slide>
         </carousel-3d>
       </client-only>
-
+    
+      <div class="mt-14">
+        <span class="text-lg font-medium">Live channels we think you’ll like</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-2 gap-y-6 py-1">
+        <div v-for="(post, i) in 4" :key="i">
+          <div>
+            <div class="stream w-full">
+              <img class="stream__thumbnail" src="https://static-cdn.jtvnw.net/previews-ttv/live_user_subroza-440x248.jpg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -94,3 +108,56 @@
     }
   }
 </script>
+
+<style scoped>
+  .stream {
+    position: relative;
+    display: inline-block;
+    background-color: #9147ff;
+  }
+
+  .stream:before,
+  .stream:after {
+    content: '';
+    display: block;
+    background-color: #9147ff;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    transition: all .15s ease;
+  }
+
+  .stream:before {
+    top: 0;
+    left: 0;
+    transform-origin: top left;
+    transform: rotate(-45deg) scale(0);
+  }
+
+  .stream:after {
+    right: 0;
+    bottom: 0;
+    transform-origin: bottom right;
+    transform: rotate(45deg) scale(0);
+  }
+
+  .stream__thumbnail {
+    display: block;
+    transform: translate(0, 0);
+    transition: all .15s ease;
+    position: relative;
+    z-index: 10;
+  }
+
+  .stream:hover .stream__thumbnail {
+    transform: translate(6px, -6px);
+  }
+
+  .stream:hover:before {
+    transform: rotate(-45deg) scale(1);
+  }
+
+  .stream:hover:after {
+    transform: rotate(45deg) scale(1);
+  }
+</style>
