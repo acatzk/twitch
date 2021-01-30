@@ -27,7 +27,7 @@
                     <div class="text-xs pt-0.5">{{ slide.viewers }} viewers</div>
                   </div>
                 </div>
-                <div class="flex flex-col py-2 space-y-2">
+                <div class="flex flex-col py-3 space-y-3">
                   <div class="flex items-center space-x-2">
                     <button  v-for="(tag, i) in slide.tags" :key="i" class="block text-xs tracking-wide font-medium text-gray-300 bg-gray-dim px-2 rounded-full py-0.5 focus:outline-none transition ease-in-out duration-75 hover:bg-gray-dark focus:bg-gray-dim">
                       {{ tag }}
