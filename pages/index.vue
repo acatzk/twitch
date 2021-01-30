@@ -3,35 +3,54 @@
     <div class="flex-shrink-0">
       <TheSideBar />
     </div>
-    <div class="flex-grow overflow-y-auto px-8 py-3">
-      <client-only>
-        <carousel-3d :controls-visible="true" 
-                     :controls-prev-html="'&#10092; '" 
-                     :controls-next-html="'&#10093;'" 
-                     :controls-width="30"
-                     :controls-height="60" 
-                     :clickable="false" 
-                     width="680" 
-                     height="280">
-          <slide v-for="(slide, i) in slides" :index="i" :key="i">
-            <PostSlide :slide="slide" />
-          </slide>
-        </carousel-3d>
-      </client-only>
-    
-      <div class="mt-14">
-        <span class="text-lg font-medium">Live channels we think you’ll like</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-2 gap-y-6 py-1">
-        <div v-for="(post, i) in 4" :key="i">
-          <div>
-            <div class="stream w-full">
-              <img class="stream__thumbnail" src="https://static-cdn.jtvnw.net/previews-ttv/live_user_subroza-440x248.jpg" alt="">
+    <client-only>
+      <perfect-scrollbar>
+        <div class="flex-grow overflow-y-auto px-8 py-3">
+          <client-only>
+            <carousel-3d :controls-visible="true" 
+                        :controls-prev-html="'&#10092; '" 
+                        :controls-next-html="'&#10093;'" 
+                        :controls-width="30"
+                        :controls-height="60" 
+                        :clickable="false" 
+                        width="680" 
+                        height="280">
+              <slide v-for="(slide, i) in slides" :index="i" :key="i">
+                <PostSlide :slide="slide" />
+              </slide>
+            </carousel-3d>
+          </client-only>
+        
+          <div class="mt-14">
+            <span class="text-lg font-medium">Live channels we think you’ll like</span>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-2.5 gap-y-6 py-1">
+            <div v-for="(post, i) in liveChannels" :key="i">
+              <div class="flex flex-col space-y-2.5">
+                <div class="stream w-full">
+                  <img class="stream__thumbnail" :src="post.thumbnail" alt="thumbnail">
+                </div>
+                <div class="flex items-start justify-start">
+                  <a href="#" class="flex-shrink-0">
+                    <img class="w-10 h-10 rounded-full" :src="post.avatar" alt="avatar">
+                  </a>
+                  <div class="ml-2 flex flex-col text-sm space-y-0.5 leading-none">
+                    <a href="#" class="text-gray-200 hover:text-primary font-medium block text-base clamp-1 leading-tight">{{ post.title }}</a>
+                    <a href="#" class="text-gray-400 hover:text-primary inline-block text-sm font-light leading-tight">{{ post.description }}</a>
+                    <a href="#" class="text-gray-400 hover:text-primary text-sm font-light">{{ post.about }}</a>
+                    <div class="flex items-center space-x-2 py-1">
+                      <button v-for="(tag, i) in post.tags" :key="i" class="block text-xs tracking-wide font-medium text-gray-300 bg-gray-dim px-2 rounded-full py-0.5 focus:outline-none transition ease-in-out duration-75 hover:bg-gray-dark focus:bg-gray-dim">
+                        {{ tag }}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </perfect-scrollbar>
+    </client-only>
   </div>
 </template>
 
@@ -104,6 +123,40 @@
             viewers: '22.7K'
           }
         ],
+        liveChannels: [
+          {
+            thumbnail: 'https://static-cdn.jtvnw.net/previews-ttv/live_user_pgl_dota2-440x248.jpg',
+            avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/23c7a5b1-6570-4035-bd0a-a71d28362dc6-profile_image-50x50.png',
+            title: 'DPC 2021 SEA | TNC vs. Neon | 496 vs. T1',
+            description: 'PGL_Dota2',
+            about: 'Dota 2',
+            tags: ['English', 'Esports']
+          },
+          {
+            thumbnail: 'https://static-cdn.jtvnw.net/previews-ttv/live_user_subroza-440x248.jpg',
+            avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/ac07cf97-755d-46d0-9c83-78cc1c2ed543-profile_image-50x50.png',
+            title: 'TSM SUBROZA Pro Gamer POSITIVITY ONLY !exitlag !aimlab !newvid | FOLLOW @SubrozaYT ON INSTA',
+            description: 'Subroza',
+            about: 'VALORANT',
+            tags: ['English']
+          },
+          {
+            thumbnail: 'https://static-cdn.jtvnw.net/previews-ttv/live_user_lck-440x248.jpg',
+            avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/04b097ac-9a71-409e-b30e-570175b39caf-profile_image-50x50.png',
+            title: 'BRO vs DRX - LSB vs GENㅣ2021 LCK Spring Split',
+            description: 'LCK',
+            about: 'League of Legends',
+            tags: ['English', 'Esports']
+          },
+          {
+            thumbnail: 'https://static-cdn.jtvnw.net/previews-ttv/live_user_punz-440x248.jpg',
+            avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/321ccdc6-54d1-4f0f-9ac3-c1fca45c91ca-profile_image-50x50.png',
+            title: 'hi :D we speedrun | !merch !gfuel | @Punztw on Twitter and Insta',
+            description: 'Punz',
+            about: 'Minecraft',
+            tags: ['English']
+          },
+        ]
       }
     }
   }
