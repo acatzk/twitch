@@ -24,6 +24,12 @@ module.exports = {
         'indigo-darkest': '#5c16c5',
         'gray-side-hover': '#26262c',
         'red-online': '#e91916'
+      },
+      lineClamp: {
+        7: '7',
+        8: '8',
+        9: '9',
+        10: '10'
       }
     },
   },
