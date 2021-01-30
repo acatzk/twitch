@@ -29,6 +29,14 @@
               <LivePostCard :post="post" />
             </div>
           </div>
+          <div class="flex items-center py-6">
+            <hr class="w-full border-1 border-dark">
+            <button class="flex items-center justify-center mx-4 space-x-1 w-64 text-primary px-2 rounded py-1.5 focus:outline-none font-bold transition ease-in-out duration-75 hover:bg-gray-dark focus:bg-gray-dim">
+              <span class="text-xs tracking-wider">Show more</span>
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M14.5 6.5L10 11 5.5 6.5 4 8l6 6 6-6-1.5-1.5z"></path></svg>
+            </button>
+            <hr class="w-full border-1 border-dark">
+          </div>
         </div>
       </perfect-scrollbar>
     </client-only>
