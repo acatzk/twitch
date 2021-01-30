@@ -7,45 +7,26 @@
       <perfect-scrollbar>
         <div class="flex-grow overflow-y-auto px-8 py-3">
           <client-only>
-            <carousel-3d :controls-visible="true" 
-                        :controls-prev-html="'&#10092; '" 
-                        :controls-next-html="'&#10093;'" 
-                        :controls-width="30"
-                        :controls-height="60" 
-                        :clickable="false" 
-                        width="680" 
-                        height="280">
+            <carousel-3d  :controls-visible="true" 
+                          :controls-prev-html="'&#10092; '" 
+                          :controls-next-html="'&#10093;'" 
+                          :controls-width="30"
+                          :controls-height="60" 
+                          :clickable="false" 
+                          :border="0"
+                          :width="680" 
+                          :height="280">
               <slide v-for="(slide, i) in slides" :index="i" :key="i">
                 <PostSlide :slide="slide" />
               </slide>
             </carousel-3d>
           </client-only>
-        
           <div class="mt-14">
             <span class="text-lg font-medium">Live channels we think you’ll like</span>
           </div>
-          <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-2.5 gap-y-6 py-1">
+          <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-2.5 gap-y-6 py-1">
             <div v-for="(post, i) in liveChannels" :key="i">
-              <div class="flex flex-col space-y-2.5">
-                <div class="stream w-full">
-                  <img class="stream__thumbnail" :src="post.thumbnail" alt="thumbnail">
-                </div>
-                <div class="flex items-start justify-start">
-                  <a href="#" class="flex-shrink-0">
-                    <img class="w-10 h-10 rounded-full" :src="post.avatar" alt="avatar">
-                  </a>
-                  <div class="ml-2 flex flex-col text-sm space-y-0.5 leading-none">
-                    <a href="#" class="text-gray-200 hover:text-primary font-medium block text-base clamp-1 leading-tight">{{ post.title }}</a>
-                    <a href="#" class="text-gray-400 hover:text-primary inline-block text-sm font-light leading-tight">{{ post.description }}</a>
-                    <a href="#" class="text-gray-400 hover:text-primary text-sm font-light">{{ post.about }}</a>
-                    <div class="flex items-center space-x-2 py-1">
-                      <button v-for="(tag, i) in post.tags" :key="i" class="block text-xs tracking-wide font-medium text-gray-300 bg-gray-dim px-2 rounded-full py-0.5 focus:outline-none transition ease-in-out duration-75 hover:bg-gray-dark focus:bg-gray-dim">
-                        {{ tag }}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <LivePostCard :post="post" />
             </div>
           </div>
         </div>
@@ -61,10 +42,12 @@
     },
     components: {
       TheSideBar: () => import('~/components/TheSideBar'),
-      PostSlide: () => import('~/components/PostSlide')
+      PostSlide: () => import('~/components/PostSlide'),
+      LivePostCard: () => import('~/components/LivePostCard')
     },
     data () {
       return {
+        isLarge: true,
         slides: [
           {
             avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/91b9b73e-b654-4cad-bc95-c7d42d59c6a3-profile_image-150x150.png',
@@ -133,7 +116,7 @@
             tags: ['English', 'Esports']
           },
           {
-            thumbnail: 'https://static-cdn.jtvnw.net/previews-ttv/live_user_subroza-440x248.jpg',
+            thumbnail: 'https://static-cdn.jtvnw.net/previews-ttv/live_user_averagejonas-440x248.jpg',
             avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/ac07cf97-755d-46d0-9c83-78cc1c2ed543-profile_image-50x50.png',
             title: 'TSM SUBROZA Pro Gamer POSITIVITY ONLY !exitlag !aimlab !newvid | FOLLOW @SubrozaYT ON INSTA',
             description: 'Subroza',
@@ -161,56 +144,3 @@
     }
   }
 </script>
-
-<style scoped>
-  .stream {
-    position: relative;
-    display: inline-block;
-    background-color: #9147ff;
-  }
-
-  .stream:before,
-  .stream:after {
-    content: '';
-    display: block;
-    background-color: #9147ff;
-    width: 8px;
-    height: 8px;
-    position: absolute;
-    transition: all .15s ease;
-  }
-
-  .stream:before {
-    top: 0;
-    left: 0;
-    transform-origin: top left;
-    transform: rotate(-45deg) scale(0);
-  }
-
-  .stream:after {
-    right: 0;
-    bottom: 0;
-    transform-origin: bottom right;
-    transform: rotate(45deg) scale(0);
-  }
-
-  .stream__thumbnail {
-    display: block;
-    transform: translate(0, 0);
-    transition: all .15s ease;
-    position: relative;
-    z-index: 10;
-  }
-
-  .stream:hover .stream__thumbnail {
-    transform: translate(6px, -6px);
-  }
-
-  .stream:hover:before {
-    transform: rotate(-45deg) scale(1);
-  }
-
-  .stream:hover:after {
-    transform: rotate(45deg) scale(1);
-  }
-</style>
