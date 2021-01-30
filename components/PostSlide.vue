@@ -20,7 +20,7 @@
             {{ tag }}
           </button>
         </div>
-        <p class="text-xs text-gray-200 leading-5">{{ slide.about }}</p>
+        <p class="text-xs text-gray-200 leading-5 clamp-8">{{ slide.about }}</p>
       </div>
     </div>
   </div>
