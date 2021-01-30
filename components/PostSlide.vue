@@ -3,7 +3,7 @@
     <a href="#" class="flex-1 block bg-black opacity-60">
       <img class="h-full" src="https://blog.bannersnack.com/wp-content/uploads/2018/10/Twitch-Social-Media-Image-Size.jpg" alt="">
     </a>
-    <div class="w-52 py-3 px-3">
+    <div class="w-52 py-3 px-3 hidden md:block">
       <div class="flex items-start justify-start space-x-2">
         <div class="flex-shrink-0 w-12 h-12">
           <img class="w-12 h-12 rounded-full" :src="slide.avatar" alt="avatar">
